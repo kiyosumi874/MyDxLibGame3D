@@ -17,7 +17,8 @@ class Scene
 {
 public:
 	Scene(SceneType sceneType) { nowSceneType = sceneType; }
-	virtual ~Scene(){}
+	
+	virtual ~Scene() { /*ˆ—–³‚µ*/ }
 
 	virtual SceneType Update() = 0;
 	virtual void Draw() = 0;

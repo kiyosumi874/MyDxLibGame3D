@@ -34,7 +34,7 @@
   <ItemGroup>
     <ClInclude Include="src\Camera\Camera.h" />
     <ClInclude Include="src\HitChecker\Hitchecker.h" />
-    <ClInclude Include="src\Macro.h" />
+    <ClInclude Include="src\Utility.h" />
     <ClInclude Include="src\Obstruct\ObstructBase.h" />
     <ClInclude Include="src\Obstruct\ObstructFloat.h" />
     <ClInclude Include="src\Obstruct\ObstructManager.h" />

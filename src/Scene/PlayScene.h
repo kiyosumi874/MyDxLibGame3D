@@ -21,7 +21,7 @@ public:
 	void Draw()        override; // •`‰æ.
 
 private:
-	Camera* pCamera;
-	Player* pPlayer;
-	ObstructManager* pObstructManager;
+	Camera* camera;
+	Player* player;
+	ObstructManager* obstructManager;
 };

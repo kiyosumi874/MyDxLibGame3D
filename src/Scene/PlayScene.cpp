@@ -9,7 +9,7 @@
 #include "Camera.h"
 #include "ObstructManager.h"
 #include "HitChecker.h"
-#include "Macro.h"
+#include "Utility.h"
 
 //-----------------------------------------------------------------------------
 // @brief  コンストラクタ.
@@ -17,10 +17,13 @@
 PlayScene::PlayScene()
 	: Scene(SceneType::PLAY)
 {
-	pCamera = new Camera;
-	pPlayer = new Player;
-	pObstructManager = new ObstructManager;
-	pObstructManager->CreateObstructs();
+	// カメラの生成
+	camera = new Camera;
+	// プレイヤーの生成
+	player = new Player;
+	// オブストラクトマネージャーの生成
+	obstructManager = new ObstructManager;
+	obstructManager->CreateObstructs();
 }
 
 //-----------------------------------------------------------------------------
@@ -28,15 +31,15 @@ PlayScene::PlayScene()
 //-----------------------------------------------------------------------------
 PlayScene::~PlayScene()
 {
-	// カメラを削除.
-	SAFE_DELETE(pCamera);
+	// カメラを解放.
+	SAFE_DELETE(camera);
 
-	// プレイヤーを削除.
-	SAFE_DELETE(pPlayer);
+	// プレイヤーを解放.
+	SAFE_DELETE(player);
 
-	// 障害物を削除.
-	pObstructManager->DestroyObstructs();
-	SAFE_DELETE(pObstructManager);
+	// 障害物を解放.
+	obstructManager->DestroyObstructs();
+	SAFE_DELETE(obstructManager);
 
 }
 
@@ -52,16 +55,16 @@ SceneType PlayScene::Update()
 	}
 
 	// プレイヤー制御.
-	pPlayer->Update();
+	player->Update();
 
 	// カメラ制御.
-	pCamera->Update(*pPlayer);
+	camera->Update(*player);
 
 	// 障害物制御.
-	pObstructManager->Update();
+	obstructManager->Update();
 
 	// ヒットのチェック.
-	HitChecker::Check(*pPlayer, *pObstructManager);
+	HitChecker::Check(*player, *obstructManager);
 
 	return nowSceneType;
 }
@@ -76,9 +79,9 @@ void PlayScene::Draw()
 #endif // _DEBUG
 
 	// プレイヤー描画.
-	pPlayer->Draw();
+	player->Draw();
 
 	// 障害物描画.
-	pObstructManager->Draw();
+	obstructManager->Draw();
 
 }

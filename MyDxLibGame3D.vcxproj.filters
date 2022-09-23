@@ -90,7 +90,7 @@
     <ClInclude Include="src\Scene\ResultScene.h">
       <Filter>ソース ファイル\Scene</Filter>
     </ClInclude>
-    <ClInclude Include="src\Macro.h">
+    <ClInclude Include="src\Utility.h">
       <Filter>ソース ファイル</Filter>
     </ClInclude>
   </ItemGroup>
