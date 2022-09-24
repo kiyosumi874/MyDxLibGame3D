@@ -51,11 +51,11 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int)
 		scene->Draw();     // 描画.
 		ScreenFlip();      // 裏画面の内容を表画面に反映させる.
 
-		// SceneTypeが切り替わったら解放とシーンの変更
+		// SceneTypeが切り替わったらシーンの切り替え
 		if (nowSceneType != prevSceneType)
 		{
 			SAFE_DELETE(scene); // シーンの解放.
-			scene = CreateScene(nowSceneType); // シーンの切り替え.
+			scene = CreateScene(nowSceneType); // シーンの生成.
 		}
 
 		// 直前のシーンを記録.
