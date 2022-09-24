@@ -10,8 +10,8 @@
 #include "Utility.h"
 
 // 関数プロトタイプ宣言.
-// シーンの切り替え.
-void ChangeScene(Scene*& scene, SceneType now);
+// シーンの生成.
+Scene* CreateScene(SceneType now);
 
 //-----------------------------------------------------------------------------
 // @brief  メイン関数.
@@ -55,10 +55,10 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int)
 		if (nowSceneType != prevSceneType)
 		{
 			SAFE_DELETE(scene); // シーンの解放.
-			ChangeScene(scene, nowSceneType); // シーンの切り替え.
+			scene = CreateScene(nowSceneType); // シーンの切り替え.
 		}
 
-		// ひとつ前のシーンを記録.
+		// 直前のシーンを記録.
 		prevSceneType = nowSceneType;
 	}
 
@@ -72,22 +72,23 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int)
 	return 0;
 }
 
-// 今のシーンと前のシーンが異なる場合は、新しいシーンを生成する.
-// 引数のsceneはポインタ型を参照している(これをしないと関数外のsceneが書き換わらない).
-void ChangeScene(Scene*& scene, SceneType now)
+// 新しいシーンを生成する.
+Scene* CreateScene(SceneType now)
 {
+	Scene* retScene = nullptr;
 	switch (now)
 	{
 	case SceneType::TITLE:
-		scene = new TitleScene;
+		retScene = new TitleScene;
 		break;
 	case SceneType::PLAY:
-		scene = new PlayScene;
+		retScene = new PlayScene;
 		break;
 	case SceneType::RESULT:
-		scene = new ResultScene;
+		retScene = new ResultScene;
 		break;
 	default:
 		break;
 	}
+	return retScene;
 }
