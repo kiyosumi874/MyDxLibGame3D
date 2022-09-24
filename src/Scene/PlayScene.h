@@ -1,27 +1,24 @@
-//-----------------------------------------------------------------------------
-// @brief  ƒvƒŒƒCƒV[ƒ“ƒNƒ‰ƒX.
+ï»¿//-----------------------------------------------------------------------------
+// @brief  ãƒ—ãƒ¬ã‚¤ã‚·ãƒ¼ãƒ³ã‚¯ãƒ©ã‚¹.
 // 2022 Kiyosumi Shiihara All Rights Reserved.
 //-----------------------------------------------------------------------------
 #pragma once
 #include "Scene.h"
 
-// ‘O•ûéŒ¾
-class Camera;
-class Player;
-class ObstructManager;
-
-// finalw’èq‚ğ‚Â‚¯‚é‚Æ‚±‚êˆÈãƒNƒ‰ƒX‚ğ”h¶‚Å‚«‚È‚­‚È‚é.
+// finalæŒ‡å®šå­ã‚’ã¤ã‘ã‚‹ã¨ã“ã‚Œä»¥ä¸Šã‚¯ãƒ©ã‚¹ã‚’æ´¾ç”Ÿã§ããªããªã‚‹.
 class PlayScene final : public Scene
 {
 public:
-	PlayScene();                // ƒRƒ“ƒXƒgƒ‰ƒNƒ^.
-	~PlayScene()      override; // ƒfƒXƒgƒ‰ƒNƒ^.
+	PlayScene();                // ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿.
+	~PlayScene()      override; // ãƒ‡ã‚¹ãƒˆãƒ©ã‚¯ã‚¿.
 
-	SceneType Update() override; // XV.
-	void Draw()        override; // •`‰æ.
+	SceneType Update() override; // æ›´æ–°.
+	void Draw()        override; // æç”».
 
 private:
-	Camera* camera;
-	Player* player;
-	ObstructManager* obstructManager;
+	// classã¯å‰æ–¹å®£è¨€ã®ä»£ã‚ã‚Š.
+	// å‰æ–¹å®£è¨€ãŒåˆ†ã‹ã‚‰ãªã„äººã¯èª¿ã¹ã¦ã¿ã‚ˆã†.
+	class Camera* camera;
+	class Player* player;
+	class ObstructManager* obstructManager;
 };

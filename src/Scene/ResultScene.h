@@ -1,21 +1,18 @@
-//-----------------------------------------------------------------------------
-// @brief  ƒŠƒUƒ‹ƒgƒV[ƒ“ƒNƒ‰ƒX.
+ï»¿//-----------------------------------------------------------------------------
+// @brief  ãƒªã‚¶ãƒ«ãƒˆã‚·ãƒ¼ãƒ³ã‚¯ãƒ©ã‚¹.
 // 2022 Kiyosumi Shiihara All Rights Reserved.
 //-----------------------------------------------------------------------------
 
 #pragma once
 #include "Scene.h"
 
-// finalw’èq‚ğ‚Â‚¯‚é‚Æ‚±‚êˆÈãƒNƒ‰ƒX‚ğ”h¶‚Å‚«‚È‚­‚È‚é.
+// finalæŒ‡å®šå­ã‚’ã¤ã‘ã‚‹ã¨ã“ã‚Œä»¥ä¸Šã‚¯ãƒ©ã‚¹ã‚’æ´¾ç”Ÿã§ããªããªã‚‹.
 class ResultScene final : public Scene
 {
 public:
-	ResultScene();                // ƒRƒ“ƒXƒgƒ‰ƒNƒ^.
-	~ResultScene()      override; // ƒfƒXƒgƒ‰ƒNƒ^.
+	ResultScene();                // ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿.
+	~ResultScene()      override; // ãƒ‡ã‚¹ãƒˆãƒ©ã‚¯ã‚¿.
 
-	SceneType Update() override; // XV.
-	void Draw()        override; // •`‰æ.
-
-private:
-
+	SceneType Update() override; // æ›´æ–°.
+	void Draw()        override; // æç”».
 };

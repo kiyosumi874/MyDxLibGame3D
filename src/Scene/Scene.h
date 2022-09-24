@@ -1,11 +1,11 @@
-//-----------------------------------------------------------------------------
-// @brief  ƒV[ƒ“Šî’êƒNƒ‰ƒX.
+ï»¿//-----------------------------------------------------------------------------
+// @brief  ã‚·ãƒ¼ãƒ³åŸºåº•ã‚¯ãƒ©ã‚¹.
 // 2022 Kiyosumi Shiihara All Rights Reserved.
 //-----------------------------------------------------------------------------
 
 #pragma once
 
-// ƒV[ƒ“‚Ìí—Ş(main.cpp‚Ìswitch•¶‚È‚Ç‚Åg—p).
+// ã‚·ãƒ¼ãƒ³ã®ç¨®é¡.
 enum class SceneType
 {
 	TITLE,
@@ -16,12 +16,11 @@ enum class SceneType
 class Scene
 {
 public:
-	Scene(SceneType sceneType) { nowSceneType = sceneType; }
-	
-	virtual ~Scene() { /*ˆ—–³‚µ*/ }
+	Scene(SceneType sceneType):nowSceneType(sceneType){ /*å‡¦ç†ç„¡ã—*/ } // ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿.
+	virtual ~Scene() { /*å‡¦ç†ç„¡ã—*/ } // ãƒ‡ã‚¹ãƒˆãƒ©ã‚¯ã‚¿.
 
-	virtual SceneType Update() = 0;
-	virtual void Draw() = 0;
+	virtual SceneType Update() = 0; // æ›´æ–°.
+	virtual void Draw() = 0; // æç”».
 protected:
-	SceneType nowSceneType;
+	SceneType nowSceneType; // ä»Šã®SceneType
 };

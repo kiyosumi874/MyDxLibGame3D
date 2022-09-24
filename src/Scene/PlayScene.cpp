@@ -1,5 +1,5 @@
-//-----------------------------------------------------------------------------
-// @brief  ƒvƒŒƒCƒV[ƒ“ƒNƒ‰ƒX.
+ï»¿//-----------------------------------------------------------------------------
+// @brief  ãƒ—ãƒ¬ã‚¤ã‚·ãƒ¼ãƒ³ã‚¯ãƒ©ã‚¹.
 // 2022 Kiyosumi Shiihara All Rights Reserved.
 //-----------------------------------------------------------------------------
 
@@ -12,65 +12,62 @@
 #include "Utility.h"
 
 //-----------------------------------------------------------------------------
-// @brief  ƒRƒ“ƒXƒgƒ‰ƒNƒ^.
+// @brief  ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿.
 //-----------------------------------------------------------------------------
 PlayScene::PlayScene()
 	: Scene(SceneType::PLAY)
+	, camera(new Camera())
+	, player(new Player())
+	, obstructManager(new ObstructManager())
 {
-	// ƒJƒƒ‰‚Ì¶¬
-	camera = new Camera;
-	// ƒvƒŒƒCƒ„[‚Ì¶¬
-	player = new Player;
-	// ƒIƒuƒXƒgƒ‰ƒNƒgƒ}ƒl[ƒWƒƒ[‚Ì¶¬
-	obstructManager = new ObstructManager;
+	// éšœå®³ç‰©ã®ç”Ÿæˆ.
 	obstructManager->CreateObstructs();
 }
 
 //-----------------------------------------------------------------------------
-// @brief  ƒfƒXƒgƒ‰ƒNƒ^.
+// @brief  ãƒ‡ã‚¹ãƒˆãƒ©ã‚¯ã‚¿.
 //-----------------------------------------------------------------------------
 PlayScene::~PlayScene()
 {
-	// ƒJƒƒ‰‚ð‰ð•ú.
+	// ã‚«ãƒ¡ãƒ©ã‚’è§£æ”¾.
 	SAFE_DELETE(camera);
 
-	// ƒvƒŒƒCƒ„[‚ð‰ð•ú.
+	// ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼ã‚’è§£æ”¾.
 	SAFE_DELETE(player);
 
-	// áŠQ•¨‚ð‰ð•ú.
+	// éšœå®³ç‰©ã‚’è§£æ”¾.
 	obstructManager->DestroyObstructs();
 	SAFE_DELETE(obstructManager);
-
 }
 
 //-----------------------------------------------------------------------------
-// @brief  XV.
+// @brief  æ›´æ–°.
 //-----------------------------------------------------------------------------
 SceneType PlayScene::Update()
 {
-	// ŽŸ‚ÌƒV[ƒ“‚Ö
+	// ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼åˆ¶å¾¡.
+	player->Update();
+
+	// ã‚«ãƒ¡ãƒ©åˆ¶å¾¡.
+	camera->Update(*player);
+
+	// éšœå®³ç‰©åˆ¶å¾¡.
+	obstructManager->Update();
+
+	// å½“ãŸã‚Šåˆ¤å®š.
+	HitChecker::Check(*player, *obstructManager);
+
+	// æ¬¡ã®ã‚·ãƒ¼ãƒ³ã¸.
 	if (CheckHitKey(KEY_INPUT_X))
 	{
 		nowSceneType = SceneType::RESULT;
 	}
 
-	// ƒvƒŒƒCƒ„[§Œä.
-	player->Update();
-
-	// ƒJƒƒ‰§Œä.
-	camera->Update(*player);
-
-	// áŠQ•¨§Œä.
-	obstructManager->Update();
-
-	// ƒqƒbƒg‚Ìƒ`ƒFƒbƒN.
-	HitChecker::Check(*player, *obstructManager);
-
 	return nowSceneType;
 }
 
 //-----------------------------------------------------------------------------
-// @brief  •`‰æ.
+// @brief  æç”».
 //-----------------------------------------------------------------------------
 void PlayScene::Draw()
 {
@@ -78,10 +75,9 @@ void PlayScene::Draw()
 	printfDx("PlayScene\nPress:X -> ResultScene\n");
 #endif // _DEBUG
 
-	// ƒvƒŒƒCƒ„[•`‰æ.
+	// ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼æç”».
 	player->Draw();
 
-	// áŠQ•¨•`‰æ.
+	// éšœå®³ç‰©æç”».
 	obstructManager->Draw();
-
 }
