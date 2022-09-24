@@ -18,6 +18,33 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\Camera\Camera.cpp" />
+    <ClCompile Include="src\HitChecker\HitChecker.cpp" />
+    <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\Obstruct\ObstructBase.cpp" />
+    <ClCompile Include="src\Obstruct\ObstructFloat.cpp" />
+    <ClCompile Include="src\Obstruct\ObstructManager.cpp" />
+    <ClCompile Include="src\Obstruct\ObstructStatic.cpp" />
+    <ClCompile Include="src\Player\Player.cpp" />
+    <ClCompile Include="src\Scene\PlayScene.cpp" />
+    <ClCompile Include="src\Scene\ResultScene.cpp" />
+    <ClCompile Include="src\Scene\TitleScene.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\Camera\Camera.h" />
+    <ClInclude Include="src\HitChecker\Hitchecker.h" />
+    <ClInclude Include="src\Utility.h" />
+    <ClInclude Include="src\Obstruct\ObstructBase.h" />
+    <ClInclude Include="src\Obstruct\ObstructFloat.h" />
+    <ClInclude Include="src\Obstruct\ObstructManager.h" />
+    <ClInclude Include="src\Obstruct\ObstructStatic.h" />
+    <ClInclude Include="src\Player\Player.h" />
+    <ClInclude Include="src\Scene\PlayScene.h" />
+    <ClInclude Include="src\Scene\ResultScene.h" />
+    <ClInclude Include="src\Scene\Scene.h" />
+    <ClInclude Include="src\Scene\TitleScene.h" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{229C6CCE-D20D-4863-AA78-E2C8A1C45EF6}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
@@ -34,7 +61,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v143</PlatformToolset>
+    <PlatformToolset>v142</PlatformToolset>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
@@ -108,7 +135,7 @@
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>Dxlib_h</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>Dxlib_h;src;src\Camera;src\HitChecker;src\Obstruct;src\Player;src\Scene</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
     </ClCompile>
     <Link>
@@ -148,7 +175,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>Dxlib_h</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>Dxlib_h;src;src\Camera;src\HitChecker;src\Obstruct;src\Player;src\Scene</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
     </ClCompile>
     <Link>
@@ -159,25 +186,6 @@
       <AdditionalLibraryDirectories>Dxlib_h</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClCompile Include="Camera.cpp" />
-    <ClCompile Include="HitChecker.cpp" />
-    <ClCompile Include="main.cpp" />
-    <ClCompile Include="ObstructBase.cpp" />
-    <ClCompile Include="ObstructFloat.cpp" />
-    <ClCompile Include="ObstructManager.cpp" />
-    <ClCompile Include="ObstructStatic.cpp" />
-    <ClCompile Include="Player.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="Camera.h" />
-    <ClInclude Include="Hitchecker.h" />
-    <ClInclude Include="ObstructBase.h" />
-    <ClInclude Include="ObstructFloat.h" />
-    <ClInclude Include="ObstructManager.h" />
-    <ClInclude Include="ObstructStatic.h" />
-    <ClInclude Include="Player.h" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
