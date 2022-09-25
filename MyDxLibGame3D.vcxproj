@@ -30,10 +30,15 @@
     <ClCompile Include="src\Scene\PlayScene.cpp" />
     <ClCompile Include="src\Scene\ResultScene.cpp" />
     <ClCompile Include="src\Scene\TitleScene.cpp" />
+    <ClCompile Include="src\Timer.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Camera\Camera.h" />
     <ClInclude Include="src\HitChecker\Hitchecker.h" />
+    <ClInclude Include="src\Timer.h" />
     <ClInclude Include="src\Utility.h" />
     <ClInclude Include="src\Obstruct\ObstructBase.h" />
     <ClInclude Include="src\Obstruct\ObstructFloat.h" />
