@@ -55,6 +55,9 @@
     <ClCompile Include="src\Scene\ResultScene.cpp">
       <Filter>ソース ファイル\Scene</Filter>
     </ClCompile>
+    <ClCompile Include="src\Timer.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Camera\Camera.h">
@@ -91,6 +94,9 @@
       <Filter>ソース ファイル\Scene</Filter>
     </ClInclude>
     <ClInclude Include="src\Utility.h">
+      <Filter>ソース ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Timer.h">
       <Filter>ソース ファイル</Filter>
     </ClInclude>
   </ItemGroup>
